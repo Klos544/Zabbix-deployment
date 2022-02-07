@@ -6,6 +6,7 @@ dpkg -i zabbix-release_5.4-1+debian11_all.deb
 apt update
 apt upgrade -y
 apt install zabbix-agent -y
-read -p "Quelle est l'adresse du serveur Zabbix ?" host
+read -p "Quelle est l'adresse du serveur Zabbix ?
+" host
 sed -i "s/Server=127.0.0.1/Server\=$host/" /etc/zabbix/zabbix_agentd.conf
 systemctl restart zabbix-agent.service
