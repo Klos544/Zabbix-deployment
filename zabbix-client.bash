@@ -7,5 +7,5 @@ apt update
 apt upgrade -y
 apt install zabbix-agent -y
 read -p "Quelle est l'adresse du serveur Zabbix ?" host
-sed -i 's%Server=127.0.0.1%Server=$host%' /etc/zabbix/zabbix_agentd.conf
+sed -i "s/Server=127.0.0.1/Server\=$host/" /etc/zabbix/zabbix_agentd.conf
 systemctl restart zabbix-agent.service
